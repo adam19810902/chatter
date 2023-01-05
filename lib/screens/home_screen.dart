@@ -5,7 +5,10 @@ import 'package:chatter/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../helpers.dart';
 import '../pages/contacts_pages.dart';
+import '../widgets/widgets.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,11 +27,48 @@ class _HomeScreenState extends State<HomeScreen> {
     ContactsPage(),
   ];
 
+  final pageTitles = const [
+    'Messages',
+    'Notifications',
+    'Calls',
+    'Contacts',
+  ];
+
   //var index = 0;
   //home git test
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leadingWidth: 54,
+        leading: Align(
+          alignment: Alignment.centerRight,
+          child: IconBackground(
+            icon: Icons.search,
+            onTap: () {
+              print('TODO search');
+            },
+          ),
+        ),
+
+        title:
+           ValueListenableBuilder(
+
+              valueListenable: pageIndex,
+              builder: (BuildContext context, int index, _){
+              return Center(child: Text(pageTitles[index]));
+            },
+          ),
+
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 24),
+            child: Avatar.small(url: Helpers.randomPictureUrl()),
+          ),
+        ],
+      ),
       body: ValueListenableBuilder(
         valueListenable: pageIndex,
         builder: (BuildContext context, int index, _){
