@@ -127,90 +127,93 @@ class MessageTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      height: 100.0,
-      decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))),
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Avatar.medium(
-                url: messageData.profilePicture,
-              ),
-            ),
-            Expanded(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Text(
-                      style: const TextStyle(
-                        letterSpacing: 0.2,
-                        wordSpacing: 1.5,
-                        fontWeight: FontWeight.w900,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                      messageData.senderName),
+    return InkWell(
+      onTap: (){},
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+        height: 100.0,
+        decoration: const BoxDecoration(
+            border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Avatar.medium(
+                  url: messageData.profilePicture,
                 ),
-                SizedBox(
-                    height: 20,
+              ),
+              Expanded(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                         style: const TextStyle(
-                          fontSize: 12,
-                          color: AppColors.textFaded,
+                          letterSpacing: 0.2,
+                          wordSpacing: 1.5,
+                          fontWeight: FontWeight.w900,
                         ),
                         overflow: TextOverflow.ellipsis,
-                        messageData.message))
-              ],
-            )),
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const SizedBox(
-                    height: 4,
+                        messageData.senderName),
                   ),
-                  Text(
-                    messageData.dateMessage.toUpperCase(),
-                    style: const TextStyle(
-                      fontSize: 11,
-                      letterSpacing: -0.2,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.textFaded,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    width: 18,
-                    height: 18,
-                    decoration: const BoxDecoration(
-                      color: AppColors.secondary,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Center(
+                  SizedBox(
+                      height: 20,
                       child: Text(
-                        '1',
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: AppColors.textLigth,
-                        ),
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: AppColors.textFaded,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          messageData.message))
+                ],
+              )),
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      messageData.dateMessage.toUpperCase(),
+                      style: const TextStyle(
+                        fontSize: 11,
+                        letterSpacing: -0.2,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.textFaded,
                       ),
                     ),
-                  )
-                ],
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                      width: 18,
+                      height: 18,
+                      decoration: const BoxDecoration(
+                        color: AppColors.secondary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Center(
+                        child: Text(
+                          '1',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: AppColors.textLigth,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
