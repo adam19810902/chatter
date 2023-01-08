@@ -1,5 +1,6 @@
 import 'package:chatter/helpers.dart';
 import 'package:chatter/models/message_data.dart';
+import 'package:chatter/screens/chat_screen.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
@@ -128,7 +129,9 @@ class MessageTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: () {
+        Navigator.of(context).push(ChatScreen.route(messageData));
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
         height: 100.0,
