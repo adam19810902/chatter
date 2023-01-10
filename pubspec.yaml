@@ -36,6 +36,8 @@ dependencies:
     sdk: flutter
   google_fonts: ^2.1.0
   jiffy: ^4.1.0
+  stream_chat_flutter_core : ^5.0.0
+  logger: ^1.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
