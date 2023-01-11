@@ -1,12 +1,13 @@
+import 'package:chatter/app.dart';
 import 'package:chatter/pages/calls_page.dart';
 import 'package:chatter/pages/messages_page.dart';
 import 'package:chatter/pages/notifications_page.dart';
+import 'package:chatter/screens/profile_screen.dart';
 import 'package:chatter/theme.dart';
 import 'package:chatter/widgets/glowing_action_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../helpers.dart';
 import '../pages/contacts_pages.dart';
 import '../widgets/widgets.dart';
 
@@ -75,7 +76,13 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 24),
-            child: Avatar.small(url: Helpers.randomPictureUrl()),
+            child: Hero(
+              tag: 'hero-profile-picture',
+              child: Avatar.small(url: context.currentUserImage,
+              onTap: (){
+                Navigator.of(context).push(ProfileScreen.route);
+              },),
+            ),
           ),
         ],
       ),

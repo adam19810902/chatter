@@ -26,9 +26,7 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.dark,
         title: 'Chatter',
         builder: (context, child) {
-          return StreamChatCore(
-              client: client,
-              child: child!);
+          return StreamChatCore(client: client, child: child!);
         },
         home: const SelectUserScreen());
   }
