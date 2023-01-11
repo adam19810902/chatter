@@ -1,23 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 
-import '../models/models.dart';
 import '../theme.dart';
 import '../widgets/widgets.dart';
 
 class ChatScreen extends StatelessWidget {
-  static Route route(MessageData data) => MaterialPageRoute(
-    builder: (context) => ChatScreen(
-      messageData: data,
+  static Route routeWithChannel(Channel channel) => MaterialPageRoute(
+    builder: (context) => StreamChannel(
+      channel: channel,
+      child: const ChatScreen(),
     ),
   );
 
   const ChatScreen({
     Key? key,
-    required this.messageData,
   }) : super(key: key);
 
-  final MessageData messageData;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +36,9 @@ class ChatScreen extends StatelessWidget {
             },
           ),
         ),
-        title: _AppBarTitle(
-          messageData: messageData,
-        ),
+        // title: _AppBarTitle(
+        //   messageData: messageData,
+        // ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -261,50 +260,50 @@ class _DateLable extends StatelessWidget {
   }
 }
 
-class _AppBarTitle extends StatelessWidget {
-  const _AppBarTitle({
-    Key? key,
-    required this.messageData,
-  }) : super(key: key);
-
-  final MessageData messageData;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Avatar.small(
-          url: messageData.profilePicture,
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                messageData.senderName,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontSize: 14),
-              ),
-              const SizedBox(height: 2),
-              const Text(
-                'Online now',
-                style: TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                ),
-              ),
-            ],
-          ),
-        )
-      ],
-    );
-  }
-}
+// class _AppBarTitle extends StatelessWidget {
+//   const _AppBarTitle({
+//     Key? key,
+//     required this.messageData,
+//   }) : super(key: key);
+//
+//   final MessageData messageData;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: [
+//         Avatar.small(
+//           url: messageData.profilePicture,
+//         ),
+//         const SizedBox(
+//           width: 16,
+//         ),
+//         Expanded(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Text(
+//                 messageData.senderName,
+//                 overflow: TextOverflow.ellipsis,
+//                 style: const TextStyle(fontSize: 14),
+//               ),
+//               const SizedBox(height: 2),
+//               const Text(
+//                 'Online now',
+//                 style: TextStyle(
+//                   fontSize: 10,
+//                   fontWeight: FontWeight.bold,
+//                   color: Colors.green,
+//                 ),
+//               ),
+//             ],
+//           ),
+//         )
+//       ],
+//     );
+//   }
+// }
 
 class _ActionBar extends StatelessWidget {
   const _ActionBar({Key? key}) : super(key: key);
